@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+#global_navi {
+    margin-bottom: 16px;
+}
+#global_navi ul {
+    font-size: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#global_navi ul li {
+    font-size: 14px;
+    display: inline-block;
+    width: 309px;
+    margin-right: 1px;
+    text-align: center;
+}
+#global_navi ul li a {
+    display: block;
+    padding: 10px 16px;
+    background-color: #00ffff;
+    color: #003333;
+    text-decoration: none;
+    transition: background-color .2s linear; 
+}
+#global_navi ul li.current a {
+    background-color: #9999ff;
+}
+#global_navi ul li a:hover {
+    background-color: #9999ff;
+}
