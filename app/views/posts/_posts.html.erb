@@ -1,0 +1,21 @@
+<% @posts.each do |post| %>
+
+<div class="container">
+  <div class="border" style="padding:10px;">
+
+    <div>
+      <%= link_to post.user.name, user_path(post.user) %> <%= @post.prefecture.name if @post.prefecture_id? %>
+    </div>
+    
+    <div>
+      <h5>サーフスポット名：<%= post.surf_spot %></h5>
+    </div>
+  
+    <%= link_to '詳細ページ', post, class: "btn btn-secondary" %>
+    <%= link_to '編集ページ', edit_post_path(post.id), class: "btn btn-light" %>
+    <%= link_to '削除', post,  method: :delete, data: { confirm: "削除してもよろしいか？" }, class: 'btn btn-danger' %>
+    
+  </div>
+</div>
+
+<% end %>

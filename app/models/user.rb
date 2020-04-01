@@ -8,4 +8,6 @@ class User < ApplicationRecord
     #validates :self_introduction, presence: true
     
     has_secure_password
+    
+    has_many :posts
 end
