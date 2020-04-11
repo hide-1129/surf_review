@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_user_logged_in, only: [:index, :show, :likes]
+  
   def index
     @users = User.order(id: :desc).page(params[:page]).per(25)
   end
@@ -21,6 +23,11 @@ class UsersController < ApplicationController
       flash[:danger] = 'ユーザーの登録に失敗しました。'
       render :new
     end
+  end
+  
+  def likes
+    @user = User.find(params[:id])
+    @fav_posts = current_user.fav_posts
   end
 end
 

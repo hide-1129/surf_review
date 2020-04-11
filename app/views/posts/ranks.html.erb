@@ -1,0 +1,17 @@
+<%= @all_ranks.each do |post| %>
+  第<%= 1 %> 位 
+  
+  <div class="container">
+  <div class="border" style="padding:10px;">
+
+    <div>
+      <%= link_to post.user.name, user_path(post.user) %> <%#= @post.prefecture.name if @post.prefecture_id? %> 
+    </div> 
+    
+    <div>
+      <h5>サーフスポット名：<%= post.surf_spot %></h5>
+    </div>
+  
+    <%= link_to '詳細ページ', post, class: "btn btn-secondary" %>
+  
+<% end %>

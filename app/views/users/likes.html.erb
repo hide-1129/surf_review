@@ -1,16 +1,15 @@
-<% if @post.present? %>
-<% posts.each do |post| %>
+<div class="text-center">
+  <h2>お気に入り登録一覧</h2>
+</div>
+
+<% @fav_posts.each do |post| %>
 
 <div class="container">
   <div class="border" style="padding:10px;">
 
     <div>
-      <%= link_to post.user.name, user_path(post.user) %> 
-    </div>
-      
-    <div>
-      <%= post.prefecture.name if post.prefecture_id? %>  
-    </div>
+      <%= link_to post.user.name, user_path(post.user) %> <%#= @post.prefecture.name if @post.prefecture_id? %> 
+    </div> 
     
     <div>
       <h5>サーフスポット名：<%= post.surf_spot %></h5>
@@ -25,7 +24,9 @@
         <%= hidden_field_tag :post_id, post.id %>
         <%= f.submit 'いいね解除', class: 'btn btn-danger btn-block' %>
       <% end %>
+      
     <% else %>
+    
       <%= form_with(model: current_user.favorites.build, local: true) do |f| %>
         <%= hidden_field_tag :post_id, post.id %>
         <%= f.submit 'いいね', class: 'btn btn-primary btn-block' %>
@@ -35,4 +36,4 @@
 </div>
 
 <% end %>
-<% end %>
+

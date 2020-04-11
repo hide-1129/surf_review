@@ -1,3 +1,25 @@
 <div class="text-center">
   <h2><%= @user.name %>の詳細</h2>
 </div>
+
+<div class="border">
+  <div class="col-sm-9">
+    
+  <%= form_with(model: @user, local: true) do |f| %>
+    
+    <div class="form-group">
+      <%= f.label :surfing_history, 'サーフィン歴' %>
+      <%= f.text_field :surfing_history, class: "form-control, hoge", size: 1 %><%= "年" %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :self_introduction, '自己紹介等' %>
+      <%= f.text_area :self_introduction, class: 'form-control' %>
+    </div>
+    
+    <%= link_to 'トップページへ', root_path %>
+  
+  <% end %>
+  
+  </div>
+</div>

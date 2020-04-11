@@ -41,7 +41,11 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     flash[:success] = 'メッセージを削除しました。'
-     redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: root_path)
+  end
+  
+  def ranks
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(2).pluck(:post_id))
   end
   
   private

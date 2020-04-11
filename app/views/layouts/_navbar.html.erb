@@ -20,10 +20,10 @@
   <nav id="global_navi">
     <ul>
       <div class="current">
-      <li><a href="posts/new">投稿</a></li>
-      <li><a href="/">マイページ</a></li>
-      <li><a href="/">投稿ランキング</a></li>
-      <li><a href="/">お気に入り</a></li>
+      <li><%= link_to '投稿', new_post_path %></li>
+      <li><%= link_to 'マイページ', user_path(current_user) %></li>
+      <li><a href="/">投稿ランキング></li>
+      <li><%= link_to 'お気に入り一覧', likes_user_path(current_user) %></li>
       </div>
     </ul>
   </nav>
